@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="72bad9ac-e488-44cd-97c6-76631f63c957" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Clojure Namespace" />
+      </list>
+    </option>
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2gCeG7yOSgVn2huorQnmLDP8TZs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Clojure REPL.local.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "cursive.last.file.extension./Users/marilia.morais/dev/study/small-projects/src": "clj",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="ReplState" timestamp="1715271654247">{:repl-history {:ide [], :local [{:command &quot;(ns small-projects.csv-to-md\n  (:require [clojure.java.io :as io]\n            [clojure.string :as str]))\n\n\n(defn parse-csv [file]\n  (let [lines (-&gt;&gt; (io/resource file)\n                   io/reader\n                   line-seq)]\n    (map #(str/split % #\&quot;,\&quot;) lines)))\n\n(defn map-entry [entry]\n  (let [[author title status date-read type] entry]\n    {:author author\n     :title title\n     :status status\n     :date-read date-read\n     :type type}))\n\n(defn process-csv [file]\n  (map map-entry (parse-csv file)))\n\n(defn write-md-file\n  [entry]\n  (let [dir-path \&quot;/Users/marilia.morais/dev/study/books/\&quot;\n        file-name (str dir-path (:title entry) \&quot;.md\&quot;)\n        file (io/file file-name)\n        content (str \&quot;---\\n\&quot;\n                     \&quot;Alias: \&quot; (:alias entry) \&quot;\\n\&quot;\n                     \&quot;Author: \&quot; (:author entry) \&quot;\\n\&quot;\n                     \&quot;Status: \&quot; (:status entry) \&quot;\\n\&quot;\n                     \&quot;Date Read: \&quot; (:date-read entry) \&quot;\\n\&quot;\n                     \&quot;Type: \&quot; (:type entry) \&quot;\\n\&quot;\n                     \&quot;---\\n\\n\&quot;)]\n\n    (.mkdirs (.getParentFile file))  ;; Ensure that the directory exists\n    (spit file content)\n    (println \&quot;File written successfully!\&quot; file-name)))\n&quot;, :offset 1163, :ns &quot;small-projects.core&quot;} {:command &quot;(write-md-file {:author \&quot;Charlotte Brontë\&quot; :title \&quot;Jane Eyre\&quot;\n                :status \&quot;Read\&quot; :date-read \&quot;02-03-2024\&quot; :type \&quot;book\&quot;})&quot;, :offset 131, :ns &quot;small-projects.csv-to-md&quot;} {:command &quot;(def file \&quot;/Users/marilia.morais/Desktop/Book Tracker - All.csv\&quot;)&quot;, :offset 65, :ns &quot;small-projects.csv-to-md&quot;} {:command &quot;(defn process-csv [file]\n  (map map-csv-row-to-md-file (parse-csv file)))&quot;, :offset 73, :ns &quot;small-projects.csv-to-md&quot;} {:command &quot;file&quot;, :offset 4, :ns &quot;small-projects.csv-to-md&quot;} {:command &quot;(process-csv file)&quot;, :offset 18, :ns &quot;small-projects.csv-to-md&quot;}], :remote []}}</component>
+  <component name="RunManager">
+    <configuration default="true" type="Babashka" factoryName="BabashkaLocalRepl" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="bbPath" value="" />
+      <setting name="parameters" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <setting name="workingDir" value="" />
+      <setting name="focusEditor" value="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="replPortFileType" value="STANDARD" />
+      <setting name="customPortFile" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <setting name="focusEditor" value="false" />
+      <setting name="urlFile" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="local" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <option name="configVersion" value="1" />
+      <option name="displayName" value="local" />
+      <option name="execution" value="LEININGEN" />
+      <module name="small-projects" />
+      <option name="options" />
+      <option name="profiles" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="72bad9ac-e488-44cd-97c6-76631f63c957" name="Changes" comment="" />
+      <created>1715205889956</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715205889956</updated>
+    </task>
+    <servers />
+  </component>
+</project>

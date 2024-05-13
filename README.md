@@ -1,10 +1,9 @@
 # small-projects
 
-A Clojure library designed to ... well, that part is up to you.
-
+A few small nested projects written in Clojure.
 ## Usage
 
-FIXME
+WIP
 
 ## License
 

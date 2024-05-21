@@ -9,7 +9,7 @@
     (map parse-line lines)))
 
 (defn content
-  []
+  [entry]
   (str "---\n"
        "Author: "(nth entry 2) "\n"
        "Status: " (first entry) "\n"
@@ -27,7 +27,7 @@
   (let [dir-path "/Users/marilia.morais/dev/study/Books/"
         file-name (str dir-path (second entry) ".md")
         file (io/file file-name)
-        content (content)]
+        content (content entry)]
 
     (.mkdirs (.getParentFile file))
     (spit file content)
